@@ -131,8 +131,8 @@ if __name__ == '__main__':
         print('Initial pedestrian destination number: ', len(pede_destinations))
 
         # spawn phase generation: 
-        # state 0: spawn 5 more pedestrians than the number of vehicles at the time step 0. Note that the destinations of the pedestrians are randomly selected from the pede_destinations pool
-        # for other states, randomly select a number of pedestrians to spawn with a range of [0, Max]
+        # step 0: spawn 5 more pedestrians than the number of vehicles at the time step 0. Note that the destinations of the pedestrians are randomly selected from the pede_destinations pool
+        # for other steps, randomly select a number of pedestrians to spawn with a range of [0, Max]
         spawn_num_max = config['spawn_num_max_pts']
         
         spawn_phase_record = []
