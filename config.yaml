@@ -1,0 +1,51 @@
+
+############ Large language model config ############
+OPENAI_API_TYPE: 'openai' # 'openai' or 'azure'
+# below are for Openai
+OPENAI_KEY: 'sk-YNU1jSMUQpggx3JG78BfB682555b49F0976cCbFe5c77Fd35' # 'sk-xxxxxx' 
+# OPENAI_CHAT_MODEL: 'gpt-4o-mini' #'gpt-4o-mini-2024-07-18' # Alternative models: 'gpt-4o-2024-08-06' (note: performance may vary)
+OPENAI_CHAT_MODEL: 'deepseek-chat'
+# OPENAI_API_BASE: 'https://api.chsdw.top/v1/chat/completions' # 'https://api.openai.com/v1/engines'
+OPENAI_API_BASE: 'https://api.deepseek.com/v1/chat/completions' # 'https://api.openai.com/v1/engines'
+# below are for Azure OAI service
+AZURE_API_BASE: https://api.chsdw.top/v1/chat/completions # https://xxxxxxx.openai.azure.com/
+AZURE_API_VERSION: "2023-07-01-preview"
+AZURE_API_KEY: #'xxxxxxx'
+AZURE_CHAT_DEPLOY_NAME: # chat model deployment name
+AZURE_EMBED_DEPLOY_NAME: # text embed model deployment name  
+
+############### LMCoDrive settings ############
+reflection_module: True # True or False
+few_shot_num: 1 # 0 for zero-shot, 1 for one-shot, 5 for five-shot
+episodes_num: 3 # run episodes
+sche_memory_path: 'recording/schedule'
+graph_memory_path: 'recording/graph'
+result_folder: 'results'
+# below are for the memory module
+model_ckpt: 'openai/clip-vit-base-patch32'
+proc_sche_memory_path: 'memories/schedule_ws'
+proc_graph_memory_path: 'memories/graphing'
+#proc_graph_memory_path: 'memories/graphing_2024-12-23_17:17:25'
+
+memory_root_path: 'memories'
+
+############ CARLA config ############
+sim_duration: 200 # seconds
+vehicle_count: 10
+pedestrian_buffer_count: 30
+
+############### AMoD environment settings ############
+destination_dist_range_min: 10
+destination_dist_range_max: 30
+spawn_num_max_pts: 3
+T_s: 10 # the time interval for the scheduling
+T_p: 2 # the time interval for the planning (MPC)
+T_e: 2 # the time interval for the execution (MPC)
+dT: 0.1 # the time interval for the simulation
+episode_folder_path: 'AMoD_data/episode_002/' # if the env_generation_mode is 'from_file', the path to the episode folder, otherwise, it is the path to save the generated episode for the 'random' mode
+
+############### baseline comparison settings ############
+env_generation_mode: 'from_file' # 'from_file' or 'random'
+schedule_mode: 'LMM' # 'DF', 'FCFS', or 'LMM'
+graph_evo_mode: 'LMM' # 'conditionalManhattan' or 'LMM'
+
